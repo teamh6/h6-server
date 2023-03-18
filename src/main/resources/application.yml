@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/example
+    username: root
+    password: 1234
+mybatis:
+  type-aliases-package: com.example.deo.domain
+  mapper-locations: mybatis/**/*.xml
+  
+server:
+  port: 9001
+ 
