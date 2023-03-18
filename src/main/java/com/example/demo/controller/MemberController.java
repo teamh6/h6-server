@@ -23,8 +23,6 @@ public class MemberController {
 	
 	@PostMapping("/login")
 	public MemberResponseDto login(@RequestBody final MemberRequestDto params) {
-		
-		MemberResponseDto entity = memberService.findBy(params);
-		return entity;
+		return memberService.findBy(params);
 	}
 }

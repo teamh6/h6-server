@@ -14,8 +14,12 @@ public class MemberService {
 	private final MemberRepository memberRepository;
 
 	public MemberResponseDto findBy(final MemberRequestDto params) {
-		MemberResponseDto entity = memberRepository.selectMember(params.getEmail(), params.getPassword());
-		return entity;
+		MemberResponseDto dto = memberRepository.selectMember(params.getEmail(), params.getPassword());
+//		if (dto == null) {
+//			throw new UserNotFoundException('laksjdflkiasjdfl;kasdjf;asdlfkj')  // 404
+//		}
+		// session login 처리
+		return dto;
 	}
 
 }
