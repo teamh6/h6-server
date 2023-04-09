@@ -97,6 +97,7 @@ public class QuestionController {
 //		return questionService.fixQuestionGet(question_id);
 //	}
 
+
 	// 답변 - 관리자
 	@PutMapping("/answer/{question_id}")
 	public int answer(@RequestBody QuestionResponse request, @PathVariable int question_id) {
