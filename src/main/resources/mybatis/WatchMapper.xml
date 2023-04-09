@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.repository.WatchRepository">
+
+	<!-- <select id="selectWatchesXml" resultType="ArrayList"> select * from 
+		watch </select> -->
+
+	<!-- doesn't working -->
+	<!-- <select id="selectWatchList" resultType="ArrayList" parameterType="Image"> 
+		select w.watch_id , w.member_id , w.name , w.price , w.description , w.category 
+		, w.register_date , w.warranty, w.selling, w.likes , w.grade, i.img_url from 
+		image i, watch w where i.watch_id = w.watch_id </select> -->
+
+</mapper>

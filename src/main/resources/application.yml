@@ -3,10 +3,18 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/example
     username: root
     password: 1234
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+     
+
 mybatis:
-  type-aliases-package: com.example.deo.domain
+  type-aliases-package: com.example.demo
   mapper-locations: mybatis/**/*.xml
   
 server:
   port: 9001
- 
+
+#temp:
+#  imgdir: C:/Dev/teamproject/temp/src/main/resources/static/img
