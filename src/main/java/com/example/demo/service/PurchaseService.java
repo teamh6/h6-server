@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.PurchaseRequest;
 import com.example.demo.dto.watch.WatchResponse;
+import com.example.demo.repository.BasketRepository;
 import com.example.demo.repository.ImageRepository;
 import com.example.demo.repository.PurchaseRepository;
 import com.example.demo.repository.WatchRepository;
@@ -19,6 +20,7 @@ public class PurchaseService {
 	private final PurchaseRepository purchaseRepository;
 	private final ImageRepository imageRepository;
 	private final WatchRepository watchRepository;
+	private final BasketRepository basketRepository;
 
 	// 구매목록 추가
 	public int insertPurchase(final PurchaseRequest request) {
@@ -28,7 +30,7 @@ public class PurchaseService {
 			result = purchaseRepository.insertPurchase(request.getMember_id(), request.getWatch_id());
 			// watchRepository의 update 사용
 			watchRepository.updateSelling(request.getWatch_id());
-
+			basketRepository.deleteBasket(request.getMember_id(), request.getWatch_id());
 		} catch (Exception e) {
 			System.out.println(e);
 			return -9999;
