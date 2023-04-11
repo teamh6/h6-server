@@ -42,12 +42,9 @@ public class PickService {
 	public int insertPick(final PickRequest request) {
 		int result = 0;
 		try {
-//			int check = pickRepository.checkPick(request.getMember_id(), request.getWatch_id());
 
-//			if (check == 0) {
 			watchRepository.upLikes(request.getWatch_id());
 			result = pickRepository.insertPick(request.getMember_id(), request.getWatch_id());
-//			}
 
 		} catch (Exception e) {
 			System.out.println(e);
@@ -61,7 +58,10 @@ public class PickService {
 	public int deletePick(final PickRequest request) {
 		int result = 0;
 		try {
-			watchRepository.downLikes(request.getWatch_id());
+			// 좋아요가 음수가 되는 걸 막아주기 위해
+			if (watchRepository.selectWatch(request.getWatch_id()).getLikes() > 0) {
+				watchRepository.downLikes(request.getWatch_id());
+			}
 			result = pickRepository.deletePick(request.getMember_id(), request.getWatch_id());
 
 		} catch (Exception e) {
