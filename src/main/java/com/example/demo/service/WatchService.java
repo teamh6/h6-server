@@ -108,7 +108,7 @@ public class WatchService {
 		try {
 			// 업데이트 된 행
 			result = watchRepository.updateWatch(request.getWatch_id(), request.getName(), request.getPrice(),
-					request.getDescription(), request.getCategory(), request.getGrade(),request.getWarranty());
+					request.getDescription(), request.getCategory(), request.getGrade(), request.getWarranty());
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			return -9999;
@@ -210,6 +210,12 @@ public class WatchService {
 	public int selectApplyCount(int member_id) {
 
 		return watchRepository.selectApplyCount(member_id);
+	}
+
+	// 모든 시계 수 가져오기
+	public int selectAllWatchCount() {
+
+		return watchRepository.selectAllWatchCount();
 	}
 
 }

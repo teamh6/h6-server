@@ -88,4 +88,8 @@ public interface WatchRepository {
 	// 상황에 따른 시계수 가져오기 - 관리자
 	@Select("select count(*)  from watch where warranty = #{warranty} and selling = #{selling}")
 	int selectWatchCount(@Param("warranty") int warranty, @Param("selling") int selling);
+	
+	//모든 시계의 수 가져오기 - 관리자
+	@Select("select count(*) from watch")
+	int selectAllWatchCount();
 }
