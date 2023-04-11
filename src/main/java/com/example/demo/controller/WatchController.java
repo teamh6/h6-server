@@ -109,10 +109,5 @@ public class WatchController {// 이것도 /api -> /watch 이런식으로 나중
 	public int selectWatchCount(@RequestBody WatchRequestCase request) {
 		return watchService.selectWatchCount(request);
 	}
-	//모든 시계 수 가져오기 - 관리자
-	@GetMapping("/count")
-	public int selectAllWatchCount() {
-		return watchService.selectAllWatchCount();
-	}
 
 }
